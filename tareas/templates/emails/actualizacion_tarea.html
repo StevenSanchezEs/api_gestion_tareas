@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+<head>
+</head>
+<body>
+    <p>Hola,</p>
+    <p>Se ha actualizado la tarea con los siguientes cambios:</p>
+    <ul>
+        {% if cambios.titulo %}
+            <li><strong>Título:</strong> {{ cambios.titulo.0 }} -> {{ cambios.titulo.1 }}</li>
+        {% endif %}
+        {% if cambios.descripcion %}
+            <li><strong>Descripción:</strong> {{ cambios.descripcion.0 }} -> {{ cambios.descripcion.1 }}</li>
+        {% endif %}
+        {% if cambios.fecha_expiracion %}
+            <li><strong>Fecha de Expiración:</strong> {{ cambios.fecha_expiracion.0 }} -> {{ cambios.fecha_expiracion.1 }}</li>
+        {% endif %}
+    </ul>
+    <p>Puedes ver más detalles y gestionar tu tarea en <a href="{{ enlace }}">este enlace</a>.</p>
+    <p>Saludos,</p>
+    <p>El equipo de [Yuhu]</p>
+</body>
+</html>
