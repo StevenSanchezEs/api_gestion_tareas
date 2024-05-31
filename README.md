@@ -1,6 +1,6 @@
 # API Gestion de Tareas Yuhu
 
-Esta API te permite realizar operaciones CRUD en /tasks/ para generar tareas con un titulo, descripción, email (se usuara para asignar tareas y enviaran notificaciones), fecha de expiración (opcional), se meneja paginación en la obtención de tareas.
+Esta API te permite realizar operaciones CRUD en /tasks/ para generar tareas con un titulo, descripción, email (se usara para asignar tareas y enviaran notificaciones), fecha de expiración (opcional), se meneja paginación en la obtención de tareas.
 
 ## Requisitos
 
@@ -36,7 +36,7 @@ Esta API te permite realizar operaciones CRUD en /tasks/ para generar tareas con
 
 6.**Base de datos**
 
-Debes tener una base de datos Postgres creada o crear una, para este ejemplo se creo una base de datos llamada **yuhu**, tu puedes elegir el de tu preferencia ya que en el archivo **.env** podras cambiar la configuración de tu base de datos si así lo requieres.
+Debes tener una base de datos Postgres creada o crear una, para este ejemplo se creo una base de datos llamada **gestion_tareas**, tu puedes elegir el de tu preferencia ya que en el archivo **.env** podras cambiar la configuración de tu base de datos si así lo requieres.
 
 
 7.**Configurar variables de entorno para producción**
@@ -46,7 +46,7 @@ Los datos presentados a continuación son unicamente para representar un ejemplo
 Ejemplo para definir Variables de entorno en el archivo .env creado previamente:
 	
  	#Variables para Configuración Base de Datos
-	POSTGRES_DB=gastion_tareas
+	POSTGRES_DB=gestion_tareas
 	POSTGRES_USER=yuhu
 	POSTGRES_PASSWORD=QnZXBYjwWpSkFcLOH
 	POSTGRES_HOST=localhost
@@ -95,26 +95,30 @@ Los siguientes datos son un ejemplo para deploy lo unico que se modifica conform
 	worker: celery -A gestion_tareas worker -l info
 	beat: celery -A gestion_tareas beat -l info
 
-Para ejecturar tanto el proyecto Django como Celery en paralelo usa el siguiente comando:
+Para ejecutar tanto el proyecto Django y Celery en paralelo, usa el siguiente comando:
 
 > honcho start
 
 **Enspoints de la API**
 
-Documentación de la API: 
+Documentación de la API:
+
 /redoc/
+
 /swagger/
 
-GRUD Tasks: 
+GRUD Tasks:
+
 /api/tasks/
 
 Generar Token:
+
 /api/token/
 
 
 **Notas**
 
-Cada solicitud para consumir un endpoint requiere que se pase el token generado previamente en los Headers de la solicitud, por ejemplo:
+Cada solicitud al consumir un endpoint requiere que se pase en los headers el token generado previamente, por ejemplo:
 
 
 Key: Authorization
