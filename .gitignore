@@ -70,3 +70,6 @@ coverage.xml
 *.tmp
 *.log
 *.test
+
+# Celery Beat schedule database
+celerybeat-schedule.db
