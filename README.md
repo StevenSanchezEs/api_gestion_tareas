@@ -68,6 +68,8 @@ Ejemplo para definir Variables de entorno en el archivo .env creado previamente:
 	ALLOWED_HOSTS=api.yuhu.com
 	CORS_ALLOWED_ORIGINS=api.yuhu.com
 	DEBUG=False
+	GUNICORN_PORT=8000
+	GUNICORN_WORKERS=8
 
 Ejemplo secrets:
 ```python
