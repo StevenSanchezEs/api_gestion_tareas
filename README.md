@@ -68,7 +68,6 @@ Ejemplo para definir Variables de entorno en el archivo .env creado previamente:
 	ALLOWED_HOSTS=api.yuhu.com
 	CORS_ALLOWED_ORIGINS=api.yuhu.com
 	DEBUG=False
-	GUNICORN_PORT=8000
 	GUNICORN_WORKERS=8
 
 Ejemplo secrets:
@@ -91,11 +90,12 @@ Con este comando podras crear el superusuario el cual es necesario y te permitir
 > python manage.py createsuperuser
 
 ## Deploy
-Los siguientes datos son un ejemplo para deploy lo unico que se modifica conforme a las necesidades para el deploy es la **IP** o **Dominio** así como el **puerto** y **workers(-w)** estos datos se encuentran en el archivo llamado Procfile con el del ejemplo:
+Los siguientes datos son un ejemplo para deploy lo unico que se modifica conforme a las necesidades para el deploy son los **workers(-w)** por medio de la variable de entorno **GUNICORN_WORKERS**, estos datos se encuentran en el archivo llamado Procfile con el del ejemplo:
 
-	web: gunicorn -w 4 -b 0.0.0.0:$PORT gestion_tareas.wsgi:application
+	web: python manage.py collectstatic --noinput && gunicorn -w ${GUNICORN_WORKERS:-4} gestion_tareas.wsgi:application
 	worker: celery -A gestion_tareas worker -l info
 	beat: celery -A gestion_tareas beat -l info
+
 
 Para ejecutar tanto el proyecto Django y Celery en paralelo, usa el siguiente comando:
 
