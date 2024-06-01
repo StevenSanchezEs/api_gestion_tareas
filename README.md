@@ -85,7 +85,7 @@ print(SECRET_KEY)
 
 8.**Crear superuser**
 
-Con este comando podras crear el superusuario el cual es necesario y te permitira consumir el endpoint /usuarios para crear más usuarios y asignar roles.
+Con este comando podras crear el superusuario el cual es necesario y te permitira generar el token para hacer solicitudes al endpoint /api/taskt/ para operaciones CRUD.
 > python manage.py createsuperuser
 
 ## Deploy
@@ -99,7 +99,7 @@ Para ejecutar tanto el proyecto Django y Celery en paralelo, usa el siguiente co
 
 > honcho start
 
-**Enspoints de la API**
+**EndPoints de la API**
 
 Documentación de la API:
 
