@@ -117,6 +117,13 @@ Generar Token:
 
 /api/token/
 
+**URLs Producción**
+
+URL Producción API: https://apigestiontareas-production.up.railway.app/
+
+URL Documentación Redoc: https://apigestiontareas-production.up.railway.app/redoc/
+
+URL Documentación Swagger: https://apigestiontareas-production.up.railway.app/swagger/
 
 **Notas**
 
