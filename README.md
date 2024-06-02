@@ -125,6 +125,10 @@ URL Documentación Redoc: https://apigestiontareas-production.up.railway.app/red
 
 URL Documentación Swagger: https://apigestiontareas-production.up.railway.app/swagger/
 
+**Imagen Docker**
+
+URL Docker: https://hub.docker.com/r/stevensanchez/gestion-tareas
+
 **Notas**
 
 Cada solicitud al consumir un endpoint requiere que se pase en los headers el token generado previamente, por ejemplo:
