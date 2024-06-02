@@ -14,7 +14,7 @@ RUN pip install --no-cache-dir -r requirements.txt
 COPY . /app/
 
 # Expone el puerto en el que correrá la aplicación
-EXPOSE 5000
+EXPOSE 8000
 
 # Comando para correr la aplicación con honcho
 CMD ["honcho", "start"]
