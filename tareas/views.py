@@ -40,23 +40,6 @@ def lista_tareas(request):
             return Response(serializer.data, status=status.HTTP_201_CREATED)
         return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
 
-    elif request.method == 'POST':
-        serializer = TareaSerializer(data=request.data)
-        if serializer.is_valid():
-            tarea = serializer.save()
-            #Enviar notificación por correo electrónico
-            asunto = f'Nueva tarea creada: {tarea.titulo}'
-            fecha_expiracion = "Indefinido" if tarea.fecha_expiracion is None else tarea.fecha_expiracion
-            context = {
-                'titulo': tarea.titulo,
-                'descripcion': tarea.descripcion,
-                'fecha_expiracion': fecha_expiracion,
-                'enlace': "https://www.yuhu.mx"
-            }
-            enviar_notificacion_email.delay(email=tarea.email, subject=asunto, template_name='emails/nueva_tarea.html', context=context)
-            return Response(serializer.data, status=status.HTTP_201_CREATED)
-        return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
-
 @api_view(['GET', 'PUT', 'PATCH', 'DELETE'])
 @permission_classes([IsAuthenticated])
 def detalle_tarea(request, pk):
